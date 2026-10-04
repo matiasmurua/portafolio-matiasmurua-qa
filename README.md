@@ -80,7 +80,7 @@ The automated suite verifies initial load, professional identity, accessible sec
 3. Open **Settings → Pages** in the repository.
 4. Under **Build and deployment**, select **GitHub Actions** as the source.
 5. Wait for the `Validate and deploy portfolio` workflow in the **Actions** tab.
-6. Open the public URL shown in the deployment summary. It normally follows `https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME/`.
+6. Open the public URL shown in the deployment summary: `https://matiasmurua.github.io/portafolio-matiasmurua-qa/`.
 
 The Vite base path is derived automatically from `GITHUB_REPOSITORY`, so every asset works under the repository path. Deployment runs only after linting, content validation, build, and Cypress tests succeed.
 

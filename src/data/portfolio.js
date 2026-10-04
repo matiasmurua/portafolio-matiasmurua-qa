@@ -6,7 +6,7 @@ const pending = {
 export const portfolio = {
   settings: {
     defaultLanguage: 'en',
-    siteUrl: '',
+    siteUrl: 'https://matiasmurua.github.io/portafolio-matiasmurua-qa',
     repositoryName: '',
   },
   personal: {
@@ -32,7 +32,7 @@ export const portfolio = {
     yearsOfExperience: '4+',
     email: 'muruamatias.96@gmail.com',
     linkedin: 'https://www.linkedin.com/in/matiasmurua/',
-    github: 'https://github.com/matiasmurua1',
+    github: 'https://github.com/matiasmurua',
     cv: 'cv-matias-murua.pdf',
   },
   navigation: [
