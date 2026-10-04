@@ -40,6 +40,8 @@ jobs:
 
       - name: Run Cypress end-to-end tests
         run: npm run test:ci
+        env:
+          VITE_BASE_PATH: /
 
       - name: Build GitHub Pages version
         run: npm run build
