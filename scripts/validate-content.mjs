@@ -6,7 +6,7 @@ import { hasRealLink, portfolio } from '../src/data/portfolio.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
 const supportedLanguages = ['en', 'es'];
-const requiredSections = ['about', 'skills', 'experience', 'projects', 'evidence'];
+const requiredSections = ['top', 'experience', 'projects', 'skills', 'services', 'about'];
 
 function validateLocalized(label, value) {
   for (const language of supportedLanguages) {
@@ -83,8 +83,22 @@ validateUnique(
 
 for (const study of portfolio.caseStudies) {
   validateLocalized(`Case study ${study.id} title`, study.title);
+  validateLocalized(`Case study ${study.id} role`, study.role);
   validateLocalized(`Case study ${study.id} summary`, study.summary);
   validateLocalized(`Case study ${study.id} challenge`, study.challenge);
+  validateLocalized(`Case study ${study.id} approach`, study.approach);
+  validateLocalized(`Case study ${study.id} impact`, study.impact);
+  if (!study.whatTested?.en?.length || !study.whatTested?.es?.length) {
+    errors.push(`Case study ${study.id} needs localized testing scope.`);
+  }
+}
+
+for (const service of portfolio.services) {
+  validateLocalized(`Service ${service.title?.en || 'without title'} title`, service.title);
+  validateLocalized(`Service ${service.title?.en || 'without title'} summary`, service.summary);
+  if (!service.includes?.en?.length || !service.includes?.es?.length) {
+    errors.push(`Service ${service.title?.en || 'without title'} needs localized deliverables.`);
+  }
 }
 
 for (const [name, value] of Object.entries({
@@ -106,10 +120,13 @@ if (
 for (const item of portfolio.evidence) {
   validateLocalized(`Evidence ${item.title?.en || 'without title'} title`, item.title);
   validateLocalized(`Evidence ${item.title?.en || 'without title'} detail`, item.detail);
-  validateLocalized(`Evidence ${item.title?.en || 'without title'} status`, item.status);
 
   if (item.url && !hasRealLink(item.url)) {
     errors.push(`Invalid evidence URL: ${item.title.en}.`);
+  }
+  if (!item.url) {
+    validateLocalized(`Evidence ${item.title?.en || 'without title'} status`, item.status);
+    validateLocalized(`Evidence ${item.title?.en || 'without title'} TODO`, item.todo);
   }
 }
 

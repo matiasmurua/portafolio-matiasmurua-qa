@@ -26,7 +26,11 @@ Feature: QA portfolio
 
   Scenario: Review the public-safe projects
     Then four project cards are visible
-    And the API Testing Demo project is visible
+    And the Cypress Automation Framework project is visible
+
+  Scenario: Compare recruiter and freelance paths
+    Then the recruiter path is visible
+    And the freelance QA path is visible
 
   Scenario: Contact Matías by email
     Then the contact action opens the professional email address

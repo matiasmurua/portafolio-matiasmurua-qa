@@ -1,8 +1,8 @@
 # Matías Murua · QA Engineer Portfolio
 
-A bilingual, responsive portfolio for QA Manual & Automation roles. It presents professional positioning, testing expertise, tool stack, public-safe case studies, QA evidence placeholders, education, languages, contact paths, and a downloadable CV.
+A bilingual, responsive portfolio positioned around QA Engineer and QA Automation Engineer opportunities. It combines recruiter-focused experience and case studies with client-focused QA services, public evidence, an explicit testing process, and a downloadable CV.
 
-The interface starts in English and includes a visible English/Spanish switch. It was designed for recruiters, hiring managers, and QA Leads evaluating remote candidates in Latin America and international teams.
+The interface starts in English and includes a lightweight English/Spanish switch. It is designed for recruiters evaluating an experienced QA profile and for international teams seeking freelance testing, automation, API validation, or pre-launch QA support.
 
 ## Stack
 
@@ -10,6 +10,7 @@ The interface starts in English and includes a visible English/Spanish switch. I
 - JavaScript only (no TypeScript)
 - Reusable components and centralized content data
 - Maintainable CSS with responsive and reduced-motion support
+- QA service cards, audience-specific conversion paths, and evidence placeholders
 - Lucide icons
 - Cypress end-to-end tests with Cucumber and Page Object Model
 - GitHub Actions deployment to GitHub Pages
@@ -41,6 +42,12 @@ Open the local URL printed by Vite, normally `http://localhost:5173`.
 | `npm run cv:generate` | Regenerate the public-safe PDF CV |
 | `npm run cv:verify` | Render the PDF to PNG files for visual review |
 
+Responsive layout checks can also be run against a local preview with:
+
+```bash
+node scripts/check-layout.mjs
+```
+
 Run the full local quality flow with:
 
 ```bash
@@ -54,9 +61,10 @@ All website profile data is centralized in [`src/data/portfolio.js`](src/data/po
 
 - Name, title, summary, location, and availability
 - Email, LinkedIn, and GitHub
-- Experience positioning and sectors
+- Experience positioning, sectors, and verified 5+ year headline
 - Skills and technology stack
-- Case studies and evidence links
+- QA services and recruiter/client conversion paths
+- Structured case studies and evidence links/TODOs
 - Education and language levels
 - CV filename and canonical site URL
 
@@ -71,7 +79,7 @@ npm run cv:verify
 
 ## Cypress coverage
 
-The automated suite verifies initial load, professional identity, accessible section names, in-page navigation, language switching, case-study visibility, contact behavior, PDF availability, and mobile responsiveness. Scenarios live in [`cypress/e2e/features/front/portfolio.feature`](cypress/e2e/features/front/portfolio.feature), with reusable actions and selectors in the Page Object.
+The automated suite verifies initial load, professional identity, accessible section names, in-page navigation, language switching, case-study visibility, recruiter/freelance paths, contact behavior, PDF availability, and mobile responsiveness. Scenarios live in [`cypress/e2e/features/front/portfolio.feature`](cypress/e2e/features/front/portfolio.feature), with reusable actions and selectors in the Page Object.
 
 ## Publish free with GitHub Pages
 
@@ -86,16 +94,17 @@ The Vite base path is derived automatically from `GITHUB_REPOSITORY`, so every a
 
 If you use a custom domain, set `portfolio.settings.siteUrl` to the final absolute URL before building.
 
-## Information still required before public outreach
+## Evidence still required
 
-- Professional email address
-- LinkedIn profile URL
-- GitHub profile URL
-- Public automation repository and QA evidence URLs
+- Cypress regression execution screenshot
+- Public-safe Allure or Mochawesome report screenshot
+- Sanitized Postman collection run
+- Anonymized SQL validation sample
+- Anonymized test case and bug report
+- Cypress framework architecture diagram
 - Employer or client-safe company names and employment dates, if approved
 - Education institution, exact qualification status, and dates
 - Final review of the generated CV before sending it to recruiters
-- Optional repository name and final public URL in the central settings
 
 No certifications, employers, private client names, metrics, credentials, or proprietary code have been fabricated.
 

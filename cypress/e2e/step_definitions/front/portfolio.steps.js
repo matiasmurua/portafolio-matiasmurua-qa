@@ -7,7 +7,7 @@ Given('the visitor opens the QA portfolio', () => {
 });
 
 Then('the professional name and QA title are visible', () => {
-  portfolioPage.heroName().should('contain', portfolio.personal.name);
+  portfolioPage.heroName().should('contain', portfolio.personal.shortName);
   portfolioPage.heroTitle().should('contain', portfolio.personal.title.en);
 });
 
@@ -26,7 +26,7 @@ Then('every labelled section references a visible heading', () => {
       .then((headingId) => {
         expect(headingId).to.be.a('string');
         expect(headingId).not.to.equal('');
-        cy.get(`#${headingId}`).should('be.visible');
+        cy.get('#' + headingId).should('be.visible');
       });
   });
 });
@@ -53,41 +53,34 @@ Then('the Spanish QA title is visible', () => {
 });
 
 Then('the Spanish skills heading is visible', () => {
-  cy.contains(
-    'h2',
-    'Cobertura definida por el riesgo del producto.',
-  ).should('be.visible');
+  cy.contains('h2', 'Profundidad manual, disciplina de automation y validación entre capas.').should('be.visible');
 });
 
 Then('four project cards are visible', () => {
-  portfolioPage
-    .projectCards()
-    .should('have.length', portfolio.caseStudies.length)
-    .and('be.visible');
+  portfolioPage.projectCards().should('have.length', portfolio.caseStudies.length).and('be.visible');
 });
 
-Then('the API Testing Demo project is visible', () => {
-  cy.contains('[data-cy="project-card"]', 'API Testing Demo').should(
-    'be.visible',
-  );
+Then('the Cypress Automation Framework project is visible', () => {
+  cy.contains('[data-cy=project-card]', 'Cypress Automation Framework').should('be.visible');
+});
+
+Then('the recruiter path is visible', () => {
+  cy.contains('h3', 'Looking to hire a QA Engineer?').should('be.visible');
+});
+
+Then('the freelance QA path is visible', () => {
+  cy.contains('h3', 'Need QA for your product?').should('be.visible');
 });
 
 Then('the contact action opens the professional email address', () => {
-  portfolioPage
-    .contactButton()
-    .should('have.attr', 'href', `mailto:${portfolio.personal.email}`);
+  portfolioPage.contactButton().should('have.attr', 'href', 'mailto:' + portfolio.personal.email);
 });
 
 Then('the CV download points to a PDF file', () => {
   portfolioPage.cvDownload().should('have.attr', 'download');
-  portfolioPage
-    .cvDownload()
-    .invoke('attr', 'href')
-    .then((href) => {
-      cy.request(href)
-        .its('headers.content-type')
-        .should('include', 'application/pdf');
-    });
+  portfolioPage.cvDownload().invoke('attr', 'href').then((href) => {
+    cy.request(href).its('headers.content-type').should('include', 'application/pdf');
+  });
 });
 
 When('the visitor uses a mobile viewport', () => {
@@ -104,10 +97,7 @@ Then('the navigation menu can be opened', () => {
 });
 
 Then('the menu button controls the main navigation', () => {
-  portfolioPage
-    .menuButton()
-    .should('have.attr', 'aria-controls', 'primary-navigation')
-    .and('have.attr', 'aria-expanded', 'true');
+  portfolioPage.menuButton().should('have.attr', 'aria-controls', 'primary-navigation').and('have.attr', 'aria-expanded', 'true');
 });
 
 Then('the mobile page has no horizontal overflow', () => {

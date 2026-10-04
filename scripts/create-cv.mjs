@@ -16,7 +16,7 @@ doc.pipe(fileStream);
 
 function pageHeader() {
   const width = doc.page.width;
-  doc.save().rect(0, 0, width, 45).fill(colors.ink).fillColor(colors.white).font('Helvetica-Bold').fontSize(8).text('MATIAS MURUA  /  QA ENGINEER', 52, 19, { lineBreak: false }).fillColor('#B8D8D1').font('Helvetica').fontSize(7).text('PUBLIC-SAFE CV  /  CONTACT LINKS PENDING', width - 260, 20, { width: 208, align: 'right', lineBreak: false }).restore();
+  doc.save().rect(0, 0, width, 45).fill(colors.ink).fillColor(colors.white).font('Helvetica-Bold').fontSize(8).text('MATIAS MURUA  /  QA ENGINEER', 52, 19, { lineBreak: false }).fillColor('#B8D8D1').font('Helvetica').fontSize(7).text('AUTOMATION  /  MANUAL  /  API  /  DATA', width - 260, 20, { width: 208, align: 'right', lineBreak: false }).restore();
   doc.x = 52;
   doc.y = 58;
 }
@@ -41,9 +41,9 @@ function rule() {
 
 pageHeader();
 doc.moveDown(.8).fillColor(colors.ink).font('Helvetica-Bold').fontSize(27).text('Matias Nahuel Murua Martinez', { lineGap: 1 });
-doc.moveDown(.25).fillColor(colors.teal).font('Helvetica-Bold').fontSize(13).text('SOFTWARE ENGINEER  /  QA ENGINEER  /  MANUAL & AUTOMATION TESTING');
-doc.moveDown(.7).fillColor(colors.ink).font('Helvetica').fontSize(9.7).text('Software Engineer and QA professional with 4+ years of experience in e-commerce, SaaS platforms, telecommunications, and enterprise dashboards. I uncover product risk early and connect requirements with clear evidence across web, API, integration, and database layers.', { lineGap: 4 });
-doc.moveDown(.8).fillColor(colors.muted).font('Helvetica').fontSize(7.2).text('CORDOBA, ARGENTINA  /  REMOTE: ARGENTINA · LATAM · INTERNATIONAL');
+doc.moveDown(.25).fillColor(colors.teal).font('Helvetica-Bold').fontSize(13).text('QA ENGINEER  /  QA AUTOMATION ENGINEER');
+doc.moveDown(.7).fillColor(colors.ink).font('Helvetica').fontSize(9.7).text('QA Engineer with 5+ years of experience across manual testing, automation, APIs, databases, and CI/CD for e-commerce, SaaS, telecommunications, and analytics products. I uncover product risk early and connect requirements with clear evidence across web, API, integration, and database layers.', { lineGap: 4 });
+doc.moveDown(.8).fillColor(colors.muted).font('Helvetica').fontSize(7.2).text('CORDOBA, ARGENTINA  /  REMOTE ROLES & FREELANCE QA  /  ENGLISH B1 - PROGRESSING TO B2');
 
 title('Professional focus');
 const focusTop = doc.y;
@@ -51,8 +51,8 @@ const focusWidth = 163;
 const focusHeight = 104;
 const focuses = [
   ['FUNCTIONAL QUALITY', 'Functional, exploratory, regression, smoke, integration, E2E, UAT, requirements analysis, acceptance criteria, and risk-based testing.'],
-  ['AUTOMATION', 'Cypress, JavaScript, Selenium WebDriver, Python, Behave, Cucumber, Page Object Model, and data-driven testing.'],
-  ['API & DATA', 'Postman, Newman, REST APIs, Oracle SQL, DBeaver, and validation between UI, service, and database layers.'],
+  ['AUTOMATION', 'Cypress, JavaScript, Selenium WebDriver, Python, Behave, Cucumber, Page Objects, CI/CD, and Playwright learning projects.'],
+  ['API & DATA', 'Postman, Swagger, Cypress API, REST APIs, Oracle SQL, DBeaver, and UI-to-API-to-database validation.'],
 ];
 focuses.forEach(([heading, body], index) => {
   const x = 52 + index * focusWidth;
@@ -78,14 +78,15 @@ for (const [heading, body] of steps) {
 }
 
 title('Toolbox');
-doc.fillColor(colors.teal).font('Helvetica-Bold').fontSize(6.8).text('CYPRESS · JAVASCRIPT · SELENIUM · PYTHON · BEHAVE · CUCUMBER · POSTMAN · NEWMAN · REST · ORACLE SQL · DBEAVER · GIT · GITHUB · BITBUCKET · GITHUB ACTIONS · JENKINS · JIRA · CONFLUENCE · XRAY · QMETRY · TESTRAIL · ALLURE · MOCHAWESOME', { lineGap: 4 });
+doc.fillColor(colors.teal).font('Helvetica-Bold').fontSize(6.8).text('CYPRESS · JAVASCRIPT · SELENIUM · PYTHON · BEHAVE · CUCUMBER · PLAYWRIGHT (LEARNING) · POSTMAN · SWAGGER · REST · ORACLE SQL · DBEAVER · GIT · GITHUB · BITBUCKET · GITHUB ACTIONS · JENKINS · JIRA · CONFLUENCE · XRAY · QMETRY · TESTRAIL · ALLURE · MOCHAWESOME', { lineGap: 4 });
 doc.moveDown(.9);
 title('Experience domains');
-doc.fillColor(colors.ink).font('Helvetica-Bold').fontSize(8.2).text('E-COMMERCE & SHOPPING CART  ·  INCENTIVE SAAS  ·  TELECOMMUNICATIONS  ·  CALL CENTER & SURVEY DASHBOARDS  ·  API TESTING DEMO');
+doc.fillColor(colors.ink).font('Helvetica-Bold').fontSize(8.2).text('E-COMMERCE  ·  INCENTIVE SAAS  ·  TELECOMMUNICATIONS  ·  CALL CENTER ANALYTICS  ·  CYPRESS AUTOMATION FRAMEWORK');
 doc.moveDown(.75);
 const noteY = doc.y;
 doc.save().roundedRect(52, noteY, 489, 44, 4).fillAndStroke(colors.pale, colors.line).restore();
-doc.fillColor(colors.muted).font('Helvetica').fontSize(7.5).text('Contact email, LinkedIn, GitHub, employer names, and exact employment dates are intentionally left out because they were not supplied. Add them before sending this CV to recruiters.', 62, noteY + 11, { width: 469, lineGap: 2 });
+doc.fillColor(colors.ink).font('Helvetica-Bold').fontSize(7.5).text('CONTACT', 62, noteY + 10, { width: 56, lineBreak: false });
+doc.fillColor(colors.muted).font('Helvetica').fontSize(7.2).text('muruamatias.96@gmail.com  ·  linkedin.com/in/matiasmurua  ·  github.com/matiasmurua', 120, noteY + 10, { width: 410, lineGap: 2 });
 pageFooter(1);
 
 doc.end();
